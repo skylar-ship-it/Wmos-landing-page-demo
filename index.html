@@ -717,17 +717,22 @@
   }
   .team-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     gap: 1.5rem;
     margin-top: 1rem;
   }
   .team-card {
+    grid-column: span 2;
     text-align: left;
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 6px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  /* Center the 3 cards on the bottom row: shift the 5th card right by 1 column */
+  .team-card:nth-child(5) {
+    grid-column: 2 / span 2;
   }
   .team-card:hover {
     transform: translateY(-3px);
@@ -790,10 +795,21 @@
     font-style: normal;
   }
   @media (max-width: 900px) {
-    .team-grid { grid-template-columns: repeat(3, 1fr); }
+    .team-grid { grid-template-columns: repeat(6, 1fr); }
+    .team-card:nth-child(5) { grid-column: span 2; }  /* reset desktop offset */
+    .team-card:nth-child(7) { grid-column: 3 / span 2; }  /* center lone last card on 3-col layout */
   }
   @media (max-width: 700px) {
-    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-grid { grid-template-columns: repeat(4, 1fr); }
+    .team-card:nth-child(5),
+    .team-card:nth-child(7) { grid-column: span 2; }  /* reset offsets, accept orphan */
+    .team-card:nth-child(7) { grid-column: 2 / span 2; }  /* center the single 7th card */
+  }
+  @media (max-width: 500px) {
+    .team-grid { grid-template-columns: 1fr; }
+    .team-card,
+    .team-card:nth-child(5),
+    .team-card:nth-child(7) { grid-column: 1; }
   }
 
   /* ==================== LEAD FORM ==================== */
