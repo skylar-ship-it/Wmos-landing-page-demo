@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="What West Michigan Oral & Maxillofacial Surgery brings to digital patient acquisition. Built infrastructure, ready to deploy.">
+<title>Capabilities | West Michigan Oral & Maxillofacial Surgery</title>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wmos-landing-page-demo.vercel.app/capabilities">
+<meta property="og:title" content="Capabilities | West Michigan Oral & Maxillofacial Surgery">
+<meta property="og:description" content="Digital patient acquisition infrastructure for full-arch reconstruction. Built. Tested. Deployed.">
+<meta property="og:image" content="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/thumbnail.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy: #0F2A47;
+    --navy-deep: #081B2E;
+    --navy-light: #1F4068;
+    --slate: #4A6178;
+    --slate-light: #7A8FA5;
+    --gold: #B89968;
+    --gold-light: #D4B98A;
+    --bg: #F7F8FA;
+    --bg-soft: #ECEFF3;
+    --white: #FFFFFF;
+    --ink: #1A1F26;
+    --muted: #5A6573;
+    --border: #DDE3EA;
+
+    --serif: 'Lora', Georgia, serif;
+    --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --shadow-md: 0 8px 24px rgba(15, 42, 71, 0.10);
+    --shadow-lg: 0 20px 48px rgba(15, 42, 71, 0.14);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* HEADER */
+  .site-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(15, 42, 71, 0.04);
+  }
+  .header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .brand-mark { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand-mark .primary {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--navy);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  .brand-mark .secondary {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    margin-top: 4px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .header-back {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    color: var(--slate);
+    font-weight: 500;
+    transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .header-back:hover { color: var(--navy); }
+  @media (max-width: 600px) {
+    .brand-mark .secondary { display: none; }
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--white);
+    padding: 90px 0 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 50%;
+    height: 100%;
+    background: radial-gradient(ellipse at top right, rgba(184, 153, 104, 0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.2rem, 5vw, 3.7rem);
+    line-height: 1.15;
+    margin-bottom: 1.4rem;
+    color: var(--white);
+  }
+  .hero-title strong {
+    font-weight: 600;
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+  .hero-lede {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.75;
+    max-width: 620px;
+  }
+
+  /* PILLARS */
+  .pillars {
+    padding: 100px 0;
+    background: var(--white);
+  }
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .pillar {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 2rem 1.75rem 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .pillar:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .pillar-num {
+    font-family: var(--sans);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+  .pillar-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--navy);
+    line-height: 1.25;
+    margin-bottom: 1.25rem;
+  }
+  .pillar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .pillar li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+  .pillar li:last-child { border-bottom: none; }
+  .pillar li::before {
+    content: '✓';
+    color: var(--gold);
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    margin-top: 0.1rem;
+    font-weight: 700;
+  }
+  .pillar li strong {
+    font-family: var(--sans);
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 0.92rem;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .pillar li span {
+    font-family: var(--sans);
+    font-weight: 400;
+    color: var(--slate);
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+  .pillar-li-text { flex: 1; }
+  @media (max-width: 900px) {
+    .pillar-grid { grid-template-columns: 1fr; }
+  }
+
+  /* THE STACK */
+  .stack-section {
+    background: var(--bg);
+    padding: 80px 0;
+  }
+  .stack-eyebrow {
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  .stack-title {
+    text-align: center;
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: var(--navy);
+    margin-bottom: 3rem;
+  }
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .stack-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.75rem 1.75rem 1.5rem;
+  }
+  .stack-card-title {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .stack-card ul { list-style: none; padding: 0; margin: 0; }
+  .stack-card li {
+    padding: 0.4rem 0;
+    font-size: 0.88rem;
+    color: var(--navy);
+    font-weight: 400;
+  }
+  @media (max-width: 700px) {
+    .stack-grid { grid-template-columns: 1fr; }
+  }
+
+  /* WHO BUILDS */
+  .who {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--white);
+    padding: 90px 0;
+  }
+  .who-inner {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .who-eyebrow {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .who-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .who-title {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 2.2rem;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 2.5rem;
+  }
+  .who-title strong {
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+  .who-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .who-list li {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid rgba(184, 153, 104, 0.2);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+  }
+  .who-list li:last-child { border-bottom: none; }
+  .who-role {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .who-detail {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.65;
+  }
+  .who-detail strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+  @media (max-width: 700px) {
+    .who-list li { grid-template-columns: 1fr; gap: 0.4rem; }
+  }
+
+  /* CTA back */
+  .cta-back {
+    text-align: center;
+    padding: 80px 0;
+    background: var(--white);
+  }
+  .cta-back h3 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 1.9rem;
+    color: var(--navy);
+    margin-bottom: 1rem;
+  }
+  .cta-back p {
+    font-size: 0.95rem;
+    color: var(--slate);
+    margin-bottom: 2rem;
+    max-width: 540px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-back-btn {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--white);
+    padding: 13px 30px;
+    border-radius: 4px;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s ease;
+    border: 1px solid var(--navy);
+  }
+  .cta-back-btn:hover {
+    background: var(--navy-light);
+    border-color: var(--navy-light);
+  }
+
+  /* FOOTER */
+  .site-footer {
+    background: var(--navy-deep);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 32px 0;
+    text-align: center;
+  }
+  .site-footer p {
+    font-family: var(--sans);
+    font-size: 0.78rem;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-mark">
+      <span class="primary">West Michigan Oral &amp; Maxillofacial Surgery</span>
+      <span class="secondary">Full-Arch Reconstruction</span>
+    </div>
+    <a href="index.html" class="header-back">← Back to Site</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-eyebrow">Pilot Capabilities · Internal Review</span>
+    <h1 class="hero-title">What we bring on <strong>day one.</strong></h1>
+    <p class="hero-sub">Built. Tested. Operating.</p>
+    <p class="hero-lede">A fully built, surgeon-led patient-acquisition platform — already in production, ready to deploy. What we bring is not a roadmap. It is a system.</p>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars">
+  <div class="container">
+    <div class="pillar-grid">
+
+      <article class="pillar">
+        <div class="pillar-num">Pillar 01</div>
+        <h2 class="pillar-title">Patient acquisition</h2>
+        <ul>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Custom landing pages</strong>
+              <span>Branded, conversion-optimized, deployed to Vercel.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Two-stage qualification form</strong>
+              <span>Filters time-wasters before the consult call.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Meta + Google Ads infrastructure</strong>
+              <span>Pixel + GTM live. Custom audiences. Lookalikes.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>SEO foundation</strong>
+              <span>Schema, OG metadata, geo-targeted structure.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Real-time attribution</strong>
+              <span>Click-to-consult tracking by ad, campaign, keyword.</span>
+            </span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="pillar">
+        <div class="pillar-num">Pillar 02</div>
+        <h2 class="pillar-title">Communication &amp; nurture</h2>
+        <ul>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Custom-coded HTML emails</strong>
+              <span>Hand-built, brand-aligned. No drag-and-drop boilerplate.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Welcome &amp; confirmation sequences</strong>
+              <span>Dynamic merge fields. Reduces no-shows.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Post-consult nurture</strong>
+              <span>Three paths: spouse approval, price, financing.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Treatment-decision sequences</strong>
+              <span>Highest-LTV prospects. Plan upload safety net.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>SMS + email orchestration</strong>
+              <span>Multi-channel workflows. A2P 10DLC compliant.</span>
+            </span>
+          </li>
+        </ul>
+      </article>
+
+      <article class="pillar">
+        <div class="pillar-num">Pillar 03</div>
+        <h2 class="pillar-title">Operations &amp; reporting</h2>
+        <ul>
+          <li>
+            <span class="pillar-li-text">
+              <strong>GHL CRM backbone</strong>
+              <span>Pipeline, custom values, branded review and booking links.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Workflow library</strong>
+              <span>Seven production workflows audited and live.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Toll-free SMS</strong>
+              <span>866-IMPLANT. Number-portable. Verified.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Compliance pages</strong>
+              <span>Privacy, ToS, A2P attestation. Indexed.</span>
+            </span>
+          </li>
+          <li>
+            <span class="pillar-li-text">
+              <strong>Reporting dashboards</strong>
+              <span>Lead source, consult-to-close, ROI by channel.</span>
+            </span>
+          </li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE STACK -->
+<section class="stack-section">
+  <div class="container">
+    <div class="stack-eyebrow">The Stack</div>
+    <h2 class="stack-title">The tools we run on.</h2>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <div class="stack-card-title">CRM &amp; Automation</div>
+        <ul>
+          <li>GoHighLevel — pipeline, workflows, SMS</li>
+          <li>Custom values &amp; merge fields</li>
+          <li>A2P 10DLC compliant SMS</li>
+          <li>Toll-free + local DID provisioning</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <div class="stack-card-title">Web &amp; Ads</div>
+        <ul>
+          <li>Next.js + Vercel — landing pages</li>
+          <li>Meta Pixel + Conversions API</li>
+          <li>Google Tag Manager + GA4</li>
+          <li>Custom HTML email (cross-client tested)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO BUILDS -->
+<section class="who">
+  <div class="who-inner">
+    <span class="who-eyebrow">Who Builds &amp; Supports</span>
+    <h2 class="who-title">The team behind <strong>the system.</strong></h2>
+    <ul class="who-list">
+      <li>
+        <span class="who-role">Strategy, Brand, Copy</span>
+        <span class="who-detail"><strong>Skylar Pulver</strong> — MS Business Analytics. Full-stack marketing operator. IW co-founder.</span>
+      </li>
+      <li>
+        <span class="who-role">Clinical Oversight</span>
+        <span class="who-detail"><strong>Dr. Eric Pulver</strong> — Board-certified OMFS. CDO at Denti.AI. Author of the All on Everyday protocol.</span>
+      </li>
+      <li>
+        <span class="who-role">Technical Builds</span>
+        <span class="who-detail"><strong>Dedicated GHL specialist + engineering support</strong> — same team, same workflows, applied to WMOS.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA back -->
+<section class="cta-back">
+  <div class="container">
+    <h3>Want to see what it looks like?</h3>
+    <p>The patient-facing landing page is live. See how this all comes together at the front end.</p>
+    <a href="index.html" class="cta-back-btn">View the Landing Page</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>West Michigan Oral &amp; Maxillofacial Surgery · Pilot Capabilities</p>
+</footer>
+
+</body>
+</html>
