@@ -529,40 +529,48 @@
     box-shadow: var(--shadow-md);
     border-color: var(--gold);
   }
-  .result-imgwrap {
+  .result-img-pair {
     position: relative;
-    aspect-ratio: 1;
+    aspect-ratio: 2 / 1;
     background: var(--navy-deep);
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .result-half {
+  .result-img-half {
     position: relative;
-    background: linear-gradient(135deg, #4A5566, #2F3845);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 12px;
+    overflow: hidden;
+    background: var(--navy-deep);
   }
-  .result-half.after { background: linear-gradient(135deg, #B89968, #8A7350); }
-  .result-half-tag {
+  .result-img-half img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .result-img-label {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: var(--sans);
-    font-size: 0.6rem;
+    font-size: 0.58rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    background: rgba(8, 27, 46, 0.75);
+    background: rgba(8, 27, 46, 0.78);
     color: var(--white);
-    padding: 5px 10px;
+    padding: 4px 10px;
     border-radius: 3px;
     font-weight: 600;
+    z-index: 2;
   }
-  .result-divider {
+  .result-img-divider {
     position: absolute;
     inset: 0 auto 0 50%;
-    width: 1px;
+    width: 2px;
     background: var(--white);
-    transform: translateX(-0.5px);
+    transform: translateX(-1px);
+    z-index: 1;
   }
   .result-body {
     padding: 1.5rem 1.5rem 1.75rem;
@@ -600,85 +608,6 @@
     font-style: italic;
     border-left: 2px solid var(--gold);
     padding-left: 0.85rem;
-  }
-
-  /* Real photo card variant */
-  .result-card-real {
-    border: 1.5px solid var(--gold);
-    box-shadow: 0 8px 24px rgba(184, 153, 104, 0.20);
-  }
-  .result-imgwrap-real {
-    display: block;
-    aspect-ratio: 1;
-    background: var(--navy-deep);
-    overflow: hidden;
-    position: relative;
-  }
-  .result-imgwrap-real img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .result-real-label {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: var(--sans);
-    font-size: 0.58rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    background: rgba(8, 27, 46, 0.78);
-    color: var(--white);
-    padding: 5px 12px;
-    border-radius: 3px;
-    font-weight: 700;
-    z-index: 2;
-  }
-  .result-real-label-top { top: 14px; }
-  .result-real-label-bottom { bottom: 14px; }
-  .result-real-tag {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    font-family: var(--sans);
-    font-size: 0.55rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--navy-deep);
-    padding: 4px 10px;
-    border-radius: 3px;
-    font-weight: 700;
-    z-index: 2;
-  }
-
-  .results-note {
-    text-align: center;
-    margin-top: 3rem;
-    padding: 1.25rem 1.75rem;
-    background: var(--bg);
-    border: 1px dashed var(--gold);
-    border-radius: 6px;
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .results-note .label {
-    font-family: var(--sans);
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    color: var(--gold);
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 0.4rem;
-  }
-  .results-note p {
-    font-size: 0.88rem;
-    color: var(--slate);
-    font-style: italic;
   }
 
   @media (max-width: 900px) {
@@ -1336,95 +1265,140 @@
     </div>
 
     <div class="results-grid">
-      <article class="result-card result-card-real">
-        <div class="result-imgwrap result-imgwrap-real">
-          <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/beforeafter.jpg"
-               alt="Real WMOS patient before and after full-arch transformation"
-               loading="lazy">
-          <span class="result-real-label result-real-label-top">Before</span>
-          <span class="result-real-label result-real-label-bottom">After</span>
-          <span class="result-real-tag">Real Patient</span>
+      <article class="result-card">
+        <div class="result-img-pair">
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/Mike-Before.webp"
+                 alt="Mike before full-arch transformation" loading="lazy">
+            <span class="result-img-label">Before</span>
+          </div>
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/Mike-After.webp"
+                 alt="Mike after full-arch transformation" loading="lazy">
+            <span class="result-img-label">After</span>
+          </div>
+          <div class="result-img-divider"></div>
         </div>
         <div class="result-body">
-          <p class="result-procedure">Full-Arch Transformation</p>
-          <h3 class="result-name">Real WMOS Patient</h3>
-          <p class="result-loc">West Michigan</p>
+          <p class="result-procedure">All-on-4 · Upper Arch</p>
+          <h3 class="result-name">Mike</h3>
+          <p class="result-loc">Grand Haven · 6 months post-op</p>
           <p class="result-quote">"I waited fifteen years to fix this. I should have come in fifteen years ago."</p>
         </div>
       </article>
 
       <article class="result-card">
-        <div class="result-imgwrap">
-          <div class="result-half"><span class="result-half-tag">Before</span></div>
-          <div class="result-half after"><span class="result-half-tag">After</span></div>
-          <div class="result-divider"></div>
+        <div class="result-img-pair">
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/Casey-Before.webp"
+                 alt="Casey before full-arch transformation" loading="lazy">
+            <span class="result-img-label">Before</span>
+          </div>
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/Casey-After.webp"
+                 alt="Casey after full-arch transformation" loading="lazy">
+            <span class="result-img-label">After</span>
+          </div>
+          <div class="result-img-divider"></div>
         </div>
         <div class="result-body">
           <p class="result-procedure">Full Mouth · Both Arches</p>
-          <h3 class="result-name">Patient — initials only</h3>
+          <h3 class="result-name">Casey</h3>
           <p class="result-loc">North Holland · 1 year post-op</p>
           <p class="result-quote">"My wife says I smile in photos for the first time in twenty years."</p>
         </div>
       </article>
 
       <article class="result-card">
-        <div class="result-imgwrap">
-          <div class="result-half"><span class="result-half-tag">Before</span></div>
-          <div class="result-half after"><span class="result-half-tag">After</span></div>
-          <div class="result-divider"></div>
+        <div class="result-img-pair">
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/Nick-Before.webp"
+                 alt="Nick before full-arch transformation" loading="lazy">
+            <span class="result-img-label">Before</span>
+          </div>
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/Nick-After.webp"
+                 alt="Nick after full-arch transformation" loading="lazy">
+            <span class="result-img-label">After</span>
+          </div>
+          <div class="result-img-divider"></div>
         </div>
         <div class="result-body">
           <p class="result-procedure">Same-Day Implants · Upper</p>
-          <h3 class="result-name">Patient — initials only</h3>
+          <h3 class="result-name">Nick</h3>
           <p class="result-loc">Grandville · 3 months post-op</p>
           <p class="result-quote">"I drove home with my new teeth the same day. Still hard to believe."</p>
         </div>
       </article>
 
       <article class="result-card">
-        <div class="result-imgwrap">
-          <div class="result-half"><span class="result-half-tag">Before</span></div>
-          <div class="result-half after"><span class="result-half-tag">After</span></div>
-          <div class="result-divider"></div>
+        <div class="result-img-pair">
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/John-Before.webp"
+                 alt="John before full-arch transformation" loading="lazy">
+            <span class="result-img-label">Before</span>
+          </div>
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/John-After.webp"
+                 alt="John after full-arch transformation" loading="lazy">
+            <span class="result-img-label">After</span>
+          </div>
+          <div class="result-img-divider"></div>
         </div>
         <div class="result-body">
           <p class="result-procedure">Failed Dentures → All-on-4</p>
-          <h3 class="result-name">Patient — initials only</h3>
+          <h3 class="result-name">John</h3>
           <p class="result-loc">South Holland · 8 months post-op</p>
           <p class="result-quote">"Forty years of dentures. One day of surgery. I would do it again tomorrow."</p>
         </div>
       </article>
 
       <article class="result-card">
-        <div class="result-imgwrap">
-          <div class="result-half"><span class="result-half-tag">Before</span></div>
-          <div class="result-half after"><span class="result-half-tag">After</span></div>
-          <div class="result-divider"></div>
+        <div class="result-img-pair">
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/Sarah-Before.webp"
+                 alt="Sarah before full-arch transformation" loading="lazy">
+            <span class="result-img-label">Before</span>
+          </div>
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/Sarah-After.webp"
+                 alt="Sarah after full-arch transformation" loading="lazy">
+            <span class="result-img-label">After</span>
+          </div>
+          <div class="result-img-divider"></div>
         </div>
         <div class="result-body">
           <p class="result-procedure">Full Arch · Lower</p>
-          <h3 class="result-name">Patient — initials only</h3>
+          <h3 class="result-name">Sarah</h3>
           <p class="result-loc">Grand Haven · 4 months post-op</p>
           <p class="result-quote">"I can chew an apple again. Such a small thing — but everything."</p>
         </div>
       </article>
 
       <article class="result-card">
-        <div class="result-imgwrap">
-          <div class="result-half"><span class="result-half-tag">Before</span></div>
-          <div class="result-half after"><span class="result-half-tag">After</span></div>
-          <div class="result-divider"></div>
+        <div class="result-img-pair">
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/Lois-Before.webp"
+                 alt="Lois before full-arch transformation" loading="lazy">
+            <span class="result-img-label">Before</span>
+          </div>
+          <div class="result-img-half">
+            <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/Lois-After.webp"
+                 alt="Lois after full-arch transformation" loading="lazy">
+            <span class="result-img-label">After</span>
+          </div>
+          <div class="result-img-divider"></div>
         </div>
         <div class="result-body">
           <p class="result-procedure">Full Mouth Reconstruction</p>
-          <h3 class="result-name">Patient — initials only</h3>
+          <h3 class="result-name">Lois</h3>
           <p class="result-loc">Grandville · 1 year post-op</p>
           <p class="result-quote">"Best decision I have made in a decade. My only regret is waiting."</p>
         </div>
       </article>
     </div>
 
-    <div class="results-note">
+    <div class="results-note" style="display:none;">
       <span class="label">◇ Demo · Photo placeholders</span>
       <p>In production, each card holds a real WMOS patient before/after with full clinical photography and signed media releases.</p>
     </div>
