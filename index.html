@@ -324,46 +324,31 @@
     overflow: hidden;
     border: 1px solid rgba(184, 153, 104, 0.3);
   }
-  .hero-ba-img {
+  .hero-ba-photo {
     position: absolute;
     inset: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
-  .hero-ba-half {
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 1rem;
-  }
-  .hero-ba-half.before {
-    background: linear-gradient(180deg, #4A5566 0%, #2F3845 100%);
-  }
-  .hero-ba-half.after {
-    background: linear-gradient(180deg, #B89968 0%, #8A7350 100%);
-  }
-  .hero-ba-half-label {
+  .hero-ba-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: var(--sans);
     font-size: 0.62rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--white);
-    background: rgba(8, 27, 46, 0.7);
-    padding: 5px 12px;
+    background: rgba(8, 27, 46, 0.78);
+    padding: 6px 14px;
     border-radius: 3px;
     font-weight: 600;
+    z-index: 2;
   }
-  .hero-ba-divider {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    background: var(--white);
-    transform: translateX(-50%);
-  }
+  .hero-ba-label-top { top: 18px; }
+  .hero-ba-label-bottom { bottom: 90px; }
   .hero-ba-caption {
     position: absolute;
     bottom: 0;
@@ -373,6 +358,7 @@
     border-top: 2px solid var(--gold);
     padding: 14px 20px;
     text-align: center;
+    z-index: 3;
   }
   .hero-ba-caption-name {
     font-family: var(--serif);
@@ -627,6 +613,59 @@
     padding-left: 0.85rem;
   }
 
+  /* Real photo card variant */
+  .result-card-real {
+    border: 1.5px solid var(--gold);
+    box-shadow: 0 8px 24px rgba(184, 153, 104, 0.20);
+  }
+  .result-imgwrap-real {
+    display: block;
+    aspect-ratio: 1;
+    background: var(--navy-deep);
+    overflow: hidden;
+    position: relative;
+  }
+  .result-imgwrap-real img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .result-real-label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--sans);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    background: rgba(8, 27, 46, 0.78);
+    color: var(--white);
+    padding: 5px 12px;
+    border-radius: 3px;
+    font-weight: 700;
+    z-index: 2;
+  }
+  .result-real-label-top { top: 14px; }
+  .result-real-label-bottom { bottom: 14px; }
+  .result-real-tag {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--navy-deep);
+    padding: 4px 10px;
+    border-radius: 3px;
+    font-weight: 700;
+    z-index: 2;
+  }
+
   .results-note {
     text-align: center;
     margin-top: 3rem;
@@ -729,62 +768,88 @@
   .team-section {
     background: var(--white);
   }
-  .team-grid {
+  .team-feature {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: center;
     margin-top: 1rem;
   }
-  .team-card {
-    text-align: center;
-    padding: 1rem;
-  }
-  .team-photo {
-    width: 100%;
-    aspect-ratio: 1;
+  .team-photo-large {
     border-radius: 6px;
-    background: linear-gradient(135deg, var(--navy-light), var(--navy));
-    margin-bottom: 1rem;
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--gold-light);
-    font-family: var(--serif);
-    font-size: 2.2rem;
-    font-weight: 600;
-    position: relative;
     overflow: hidden;
+    border: 1px solid var(--border);
+    border-bottom: 4px solid var(--gold);
+    box-shadow: var(--shadow-md);
+    background: var(--bg);
   }
-  .team-photo::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--gold);
+  .team-photo-large img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
-  .team-name {
+  .team-roster {
+    padding: 0.5rem 0;
+  }
+  .team-roster-label {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .team-roster-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .team-roster-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .team-roster-list li:last-child {
+    border-bottom: none;
+  }
+  .team-roster-name {
     font-family: var(--serif);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--navy);
     font-weight: 600;
-    margin-bottom: 0.2rem;
   }
-  .team-cred {
+  .team-roster-cred {
     font-family: var(--sans);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
     color: var(--gold);
     text-transform: uppercase;
     font-weight: 600;
   }
-  @media (max-width: 900px) {
-    .team-grid { grid-template-columns: repeat(3, 1fr); }
+  .team-roster-cta {
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid var(--gold);
   }
-  @media (max-width: 700px) {
-    .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-roster-quote {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    color: var(--slate);
+    line-height: 1.55;
+    font-style: italic;
+  }
+  .team-roster-quote strong {
+    color: var(--navy);
+    font-weight: 600;
+    font-style: normal;
+  }
+  @media (max-width: 900px) {
+    .team-feature { grid-template-columns: 1fr; gap: 2.5rem; }
   }
 
   /* ==================== LEAD FORM ==================== */
@@ -1205,18 +1270,15 @@
     </div>
 
     <div class="hero-ba">
-      <div class="hero-ba-img">
-        <div class="hero-ba-half before">
-          <span class="hero-ba-half-label">Before</span>
-        </div>
-        <div class="hero-ba-half after">
-          <span class="hero-ba-half-label">After</span>
-        </div>
-      </div>
-      <div class="hero-ba-divider"></div>
+      <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/beforeafter.jpg"
+           alt="Before and after full-arch dental implant transformation"
+           class="hero-ba-photo"
+           loading="eager">
+      <span class="hero-ba-label hero-ba-label-top">Before</span>
+      <span class="hero-ba-label hero-ba-label-bottom">After</span>
       <div class="hero-ba-caption">
-        <div class="hero-ba-caption-name">Patient transformation</div>
-        <div class="hero-ba-caption-loc">Grand Haven · Full Arch</div>
+        <div class="hero-ba-caption-name">Real patient transformation</div>
+        <div class="hero-ba-caption-loc">Full Arch · WMOS</div>
       </div>
     </div>
   </div>
@@ -1291,16 +1353,19 @@
     </div>
 
     <div class="results-grid">
-      <article class="result-card">
-        <div class="result-imgwrap">
-          <div class="result-half"><span class="result-half-tag">Before</span></div>
-          <div class="result-half after"><span class="result-half-tag">After</span></div>
-          <div class="result-divider"></div>
+      <article class="result-card result-card-real">
+        <div class="result-imgwrap result-imgwrap-real">
+          <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/beforeafter.jpg"
+               alt="Real WMOS patient before and after full-arch transformation"
+               loading="lazy">
+          <span class="result-real-label result-real-label-top">Before</span>
+          <span class="result-real-label result-real-label-bottom">After</span>
+          <span class="result-real-tag">Real Patient</span>
         </div>
         <div class="result-body">
-          <p class="result-procedure">All-on-4 · Upper Arch</p>
-          <h3 class="result-name">Patient — initials only</h3>
-          <p class="result-loc">Grand Haven · 6 months post-op</p>
+          <p class="result-procedure">Full-Arch Transformation</p>
+          <h3 class="result-name">Real WMOS Patient</h3>
+          <p class="result-loc">West Michigan</p>
           <p class="result-quote">"I waited fifteen years to fix this. I should have come in fifteen years ago."</p>
         </div>
       </article>
@@ -1422,50 +1487,31 @@
   <div class="container">
     <div class="section-header">
       <span class="section-eyebrow">Meet Our Surgeons</span>
-      <h2 class="section-title">Seven board-certified oral &amp; maxillofacial surgeons.</h2>
+      <h2 class="section-title">Eight board-certified oral &amp; maxillofacial surgeons.</h2>
       <p class="section-lede">All certified by the American Board of Oral and Maxillofacial Surgery. All practicing in West Michigan. All available to manage your full-arch case from consultation through final restoration.</p>
     </div>
 
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-photo">DD</div>
-        <div class="team-name">Dr. DeYoung</div>
-        <div class="team-cred">DDS, MD</div>
+    <div class="team-feature">
+      <div class="team-photo-large">
+        <img src="https://raw.githubusercontent.com/skylar-ship-it/Wmos-landing-page-demo/main/doctors.webp"
+             alt="The board-certified oral and maxillofacial surgeons of West Michigan Oral Surgery"
+             loading="lazy">
       </div>
-      <div class="team-card">
-        <div class="team-photo">DG</div>
-        <div class="team-name">Dr. Grinzinger</div>
-        <div class="team-cred">DDS, MD</div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo">DH</div>
-        <div class="team-name">Dr. Houle</div>
-        <div class="team-cred">DDS, MD</div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo">DH</div>
-        <div class="team-name">Dr. Huizinga</div>
-        <div class="team-cred">DDS, MD</div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo">DK</div>
-        <div class="team-name">Dr. Kirby</div>
-        <div class="team-cred">DDS, MD</div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo">DK</div>
-        <div class="team-name">Dr. Klooster</div>
-        <div class="team-cred">DDS, MD</div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo">DL</div>
-        <div class="team-name">Dr. Lonergan</div>
-        <div class="team-cred">DDS, MD</div>
-      </div>
-      <div class="team-card">
-        <div class="team-photo">DN</div>
-        <div class="team-name">Dr. Nalley</div>
-        <div class="team-cred">DDS, MD</div>
+      <div class="team-roster">
+        <div class="team-roster-label">The Team</div>
+        <ul class="team-roster-list">
+          <li><span class="team-roster-name">Dr. DeYoung</span><span class="team-roster-cred">DDS, MD</span></li>
+          <li><span class="team-roster-name">Dr. Grinzinger</span><span class="team-roster-cred">DDS, MD</span></li>
+          <li><span class="team-roster-name">Dr. Houle</span><span class="team-roster-cred">DDS, MD</span></li>
+          <li><span class="team-roster-name">Dr. Huizinga</span><span class="team-roster-cred">DDS, MD</span></li>
+          <li><span class="team-roster-name">Dr. Kirby</span><span class="team-roster-cred">DDS, MD</span></li>
+          <li><span class="team-roster-name">Dr. Klooster</span><span class="team-roster-cred">DDS, MD</span></li>
+          <li><span class="team-roster-name">Dr. Lonergan</span><span class="team-roster-cred">DDS, MD</span></li>
+          <li><span class="team-roster-name">Dr. Nalley</span><span class="team-roster-cred">DDS, MD</span></li>
+        </ul>
+        <div class="team-roster-cta">
+          <p class="team-roster-quote">All board-certified by the <strong>American Board of Oral &amp; Maxillofacial Surgery.</strong></p>
+        </div>
       </div>
     </div>
   </div>
